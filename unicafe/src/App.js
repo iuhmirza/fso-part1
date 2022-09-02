@@ -5,7 +5,7 @@ const Header = ({text}) => <h1>{text}</h1>
 const Button = ({text, handleVote}) => <button onClick={handleVote}>{text}</button>
 
 
-const Results = ({text, votes}) => <p>{text} {votes}</p>
+const Results = ({text, value}) => <p>{text} {value}</p>
 
 const App = () => {
   const [good, setGood] = useState(0)
@@ -22,9 +22,13 @@ const App = () => {
 
       <Header text={'statistics'}/>
 
-      <Results text={'good'} votes={good}  />
-      <Results text={'neutral'} votes={neutral}/>
-      <Results text={'bad'} votes={bad} />
+      <Results text={'good'} value={good}  />
+      <Results text={'neutral'} value={neutral}/>
+      <Results text={'bad'} value={bad} />
+
+      <Results text={'all'} value={good+neutral+bad}/>
+      <Results text={'average'} value={(good - bad)/(good+neutral+bad)}/>
+      <Results text={'positive'} value={good/(good+bad+neutral)}/>
     </div>
 
   )
