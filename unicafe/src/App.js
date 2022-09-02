@@ -22,9 +22,9 @@ const Statistics = ({good, neutral, bad}) => {
           <Results text={'neutral'} value={neutral}/>
           <Results text={'bad'} value={bad} />
   
-          <Results text={'all'} value={good+neutral+bad}/>
-          <Results text={'average'} value={(good - bad)/(good+neutral+bad)}/>
-          <Results text={'positive'} value={good/(good+bad+neutral)}/>
+          <Results text={'all'} value={good + neutral + bad}/>
+          <Results text={'average'} value={(good - bad)/(good + neutral + bad)}/>
+          <Results text={'positive'} value={good / (good + bad + neutral)}/>
         </tbody>
       </table>
     )
@@ -40,7 +40,6 @@ const App = () => {
   return (
     <div>
       <Header text={'give feedback'}/>
-
       <Button text={'good'} handleVote={() => setGood(good + 1)}/>
       <Button text={'neutral'} handleVote={() => setNeutral(neutral + 1)}/>
       <Button text={'bad'} handleVote={() => setBad(bad + 1)}/>
