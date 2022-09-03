@@ -19,25 +19,20 @@ const App = () => {
 
   return (
     <div>
-      {anecdotes[selected]}
-
-      <br></br>
+      <h1>Anecdote of the day</h1>
+      <p>{anecdotes[selected]}</p>
+      <p>has {points[selected]} votes</p>
 
       <Button text = {'next anecdote'} onClick = {() => {
         setSelected(Math.floor((Math.random()*anecdotes.length)))
       }}/>
-
-      <br></br>
-
-      {points[selected]}
-
-      <br></br>
 
       <Button text = {'vote'} onClick = {() => {
         const newPoints = [...points]
         newPoints[selected] += 1
         setPoints([...newPoints])
       }}/>
+      
     </div>
   )
 }
